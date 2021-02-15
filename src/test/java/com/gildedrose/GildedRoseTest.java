@@ -1,9 +1,9 @@
 package com.gildedrose;
 
-import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class GildedRoseTest {
 
@@ -23,8 +23,7 @@ public class GildedRoseTest {
         aGildedRose(item).updateQuality();
 
         //Then
-        assertThat(item.sellIn, equalTo(9));
-
+        assertEquals(9, item.sellIn);
     }
 
     @Test
@@ -37,8 +36,7 @@ public class GildedRoseTest {
         aGildedRose(notExpiredItem).updateQuality();
 
         //Then
-        assertThat(notExpiredItem.quality, equalTo(9));
-
+        assertEquals(9, notExpiredItem.quality);
     }
 
     @Test
@@ -52,9 +50,8 @@ public class GildedRoseTest {
         aGildedRose(expiredItem, expiredItemForDays).updateQuality();
 
         //Then
-        assertThat(expiredItem.quality, equalTo(8));
-        assertThat(expiredItemForDays.quality, equalTo(8));
-
+        assertEquals(8, expiredItem.quality);
+        assertEquals(8, expiredItemForDays.quality);
     }
 
     @Test
@@ -69,9 +66,9 @@ public class GildedRoseTest {
         aGildedRose(expiredItemWithNoQuality, expiredItemWithQuality, notExpiredItemWithNoQuality).updateQuality();
 
         //Then
-        assertThat(expiredItemWithNoQuality.quality, equalTo(0));
-        assertThat(expiredItemWithQuality.quality, equalTo(0));
-        assertThat(notExpiredItemWithNoQuality.quality, equalTo(0));
+        assertEquals(0, expiredItemWithNoQuality.quality);
+        assertEquals(0, expiredItemWithQuality.quality);
+        assertEquals(0, notExpiredItemWithNoQuality.quality);
     }
 
     @Test
@@ -85,8 +82,8 @@ public class GildedRoseTest {
         aGildedRose(expiredAgedBrie, notExpiredAgedBrie).updateQuality();
 
         //Then
-        assertThat(expiredAgedBrie.quality, equalTo(3));
-        assertThat(notExpiredAgedBrie.quality, equalTo(2));
+        assertEquals(3, expiredAgedBrie.quality);
+        assertEquals(2, notExpiredAgedBrie.quality);
     }
 
     @Test
@@ -100,8 +97,8 @@ public class GildedRoseTest {
         aGildedRose(expiredAgedBrie, notExpiredAgedBrie).updateQuality();
 
         //Then
-        assertThat(expiredAgedBrie.quality, equalTo(MAX_QUALITY));
-        assertThat(notExpiredAgedBrie.quality, equalTo(MAX_QUALITY));
+        assertEquals(MAX_QUALITY, expiredAgedBrie.quality);
+        assertEquals(MAX_QUALITY, notExpiredAgedBrie.quality);
     }
 
     @Test
@@ -116,9 +113,9 @@ public class GildedRoseTest {
         aGildedRose(notExpiredSulfuras, expiredSulfuras, expiredSulfurasForDays).updateQuality();
 
         //Then
-        assertThat(notExpiredSulfuras.quality, equalTo(SULFURAS_QUALITY));
-        assertThat(expiredSulfuras.quality, equalTo(SULFURAS_QUALITY));
-        assertThat(expiredSulfurasForDays.quality, equalTo(SULFURAS_QUALITY));
+        assertEquals(SULFURAS_QUALITY, notExpiredSulfuras.quality);
+        assertEquals(SULFURAS_QUALITY, expiredSulfuras.quality);
+        assertEquals(SULFURAS_QUALITY, expiredSulfurasForDays.quality);
     }
 
     @Test
@@ -132,8 +129,8 @@ public class GildedRoseTest {
         aGildedRose(notExpiredSulfuras, expiredSulfuras).updateQuality();
 
         //Then
-        assertThat(notExpiredSulfuras.sellIn, equalTo(10));
-        assertThat(expiredSulfuras.sellIn, equalTo(0));
+        assertEquals(10, notExpiredSulfuras.sellIn);
+        assertEquals(0, expiredSulfuras.sellIn);
     }
 
     @Test
@@ -146,7 +143,7 @@ public class GildedRoseTest {
         aGildedRose(elevenDaysBeforeConcert).updateQuality();
 
         //Then
-        assertThat(elevenDaysBeforeConcert.quality, equalTo(11));
+        assertEquals(11, elevenDaysBeforeConcert.quality);
     }
 
     @Test
@@ -160,8 +157,8 @@ public class GildedRoseTest {
         aGildedRose(tenDaysBeforeConcert, sixDaysBeforeConcert).updateQuality();
 
         //Then
-        assertThat(tenDaysBeforeConcert.quality, equalTo(12));
-        assertThat(sixDaysBeforeConcert.quality, equalTo(12));
+        assertEquals(12, tenDaysBeforeConcert.quality);
+        assertEquals(12, sixDaysBeforeConcert.quality);
     }
 
     @Test
@@ -175,8 +172,8 @@ public class GildedRoseTest {
         aGildedRose(fiveDaysBeforeConcert, oneDayBeforeConcert).updateQuality();
 
         //Then
-        assertThat(fiveDaysBeforeConcert.quality, equalTo(13));
-        assertThat(oneDayBeforeConcert.quality, equalTo(13));
+        assertEquals(13, fiveDaysBeforeConcert.quality);
+        assertEquals(13, oneDayBeforeConcert.quality);
     }
 
     @Test
@@ -190,8 +187,8 @@ public class GildedRoseTest {
         aGildedRose(oneDayAfterTheConcert, twoDaysAfterTheConcert).updateQuality();
 
         //Then
-        assertThat(oneDayAfterTheConcert.quality, equalTo(0));
-        assertThat(twoDaysAfterTheConcert.quality, equalTo(0));
+        assertEquals(0, oneDayAfterTheConcert.quality);
+        assertEquals(0, twoDaysAfterTheConcert.quality);
     }
 
     @Test
@@ -210,11 +207,11 @@ public class GildedRoseTest {
         ).updateQuality();
 
         //Then
-        assertThat(elevenDaysBeforeConcert.quality, equalTo(MAX_QUALITY));
-        assertThat(tenDaysBeforeConcert.quality, equalTo(MAX_QUALITY));
-        assertThat(sixDaysBeforeConcert.quality, equalTo(MAX_QUALITY));
-        assertThat(fiveDaysBeforeConcert.quality, equalTo(MAX_QUALITY));
-        assertThat(oneDayBeforeConcert.quality, equalTo(MAX_QUALITY));
+        assertEquals(MAX_QUALITY, elevenDaysBeforeConcert.quality);
+        assertEquals(MAX_QUALITY, tenDaysBeforeConcert.quality);
+        assertEquals(MAX_QUALITY, sixDaysBeforeConcert.quality);
+        assertEquals(MAX_QUALITY, fiveDaysBeforeConcert.quality);
+        assertEquals(MAX_QUALITY, oneDayBeforeConcert.quality);
     }
 
     private Item anItem(String name, int sellIn, int quality) {
@@ -228,6 +225,4 @@ public class GildedRoseTest {
     private GildedRose aGildedRose(Item... items) {
         return new GildedRose(items);
     }
-
-
 }
